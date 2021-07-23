@@ -5,7 +5,6 @@ pipeline {
     environment {
             COMMIT_HASH = "${sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()}"
             AWS_ID =  
-            IMG_NAME = "user_portal"
             REGION = "us-east-2"
             S3_BUCKET = "user-portal-alinetest"
         }
