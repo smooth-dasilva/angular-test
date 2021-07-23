@@ -50,3 +50,4 @@ pipeline {
             sh "Post user_portal deployment"
         }
     }
+}
