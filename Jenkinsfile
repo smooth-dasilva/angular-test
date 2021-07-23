@@ -8,12 +8,13 @@ pipeline {
             REGION = "us-east-2"
             S3_BUCKET = "user-portal-alinetest"
         }
-    stage("Install") {
+    stages {
+
+        stage("Install") {
             steps {
                 sh "npm install"
             }
         }
-    stages {
         stage("Test and lint") {
             steps {
                 sh "ng test"
