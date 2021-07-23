@@ -4,7 +4,7 @@ pipeline {
     tools {nodejs "nodejs"}
     environment {
             COMMIT_HASH = "${sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()}"
-            AWS_ID = credentials('AWS_ID')
+            AWS_ID =  
             IMG_NAME = "user_portal"
             REGION = "us-east-2"
             S3_BUCKET = "user-portal-alinetest"
@@ -16,11 +16,11 @@ pipeline {
                 sh "npm install"
             }
         }
-        stage("Test and lint") {
-            steps {
-                sh "ng test"
-            }
-        }
+        // stage("Test and lint") {
+        //     steps {
+        //         sh "ng test"
+        //     }
+        // }
         stage("Serve and build") {
             steps {
                 sh "ng build"
