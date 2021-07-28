@@ -14,11 +14,11 @@ pipeline {
                 sh "npm install"
             }
         }
-        // stage("Test and lint") {
-        //     steps {
-        //         sh "ng test"
-        //     }
-        // }
+        stage("Test and lint") {
+            steps {
+                sh "ng test"
+            }
+        }
         stage("Serve and build") {
             steps {
                 sh "ng build"
@@ -31,11 +31,11 @@ pipeline {
 //                 }
 //             }
 //         }
-        stage(‘Await Quality Gateway’) {
-            steps {
-                waitForQualityGate abortPipeline: true
-            }
-        }
+//         stage(‘Await Quality Gateway’) {
+//             steps {
+//                 waitForQualityGate abortPipeline: true
+//             }
+//         }
 
         stage("Deploy") {
             steps {
