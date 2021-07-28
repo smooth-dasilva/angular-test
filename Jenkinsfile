@@ -24,18 +24,18 @@ pipeline {
                 sh "ng build"
             }
         }
-        // stage(‘Code Analysis: Sonarqube’) {
-        //     steps {
-        //         withSonarQubeEnv(‘SonarQube’) {
-        //             sh ‘np sonar:sonar’
-        //         }
-        //     }
-        // }
-        // stage(‘Await Quality Gateway’) {
-        //     steps {
-        //         waitForQualityGate abortPipeline: true
-        //     }
-        // }
+//         stage(‘Code Analysis: Sonarqube’) {
+//             steps {
+//                 withSonarQubeEnv(‘SonarQube’) {
+//                     sh ‘np sonar:sonar’
+//                 }
+//             }
+//         }
+        stage(‘Await Quality Gateway’) {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
 
         stage("Deploy") {
             steps {
