@@ -47,7 +47,7 @@ pipeline {
     }
     post {
         always {
-            sh "Post user_portal deployment"
+            echo "Post user_portal deployment"
         }
     }
 }
