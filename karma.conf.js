@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/aline-userportal'),
+      dir: require('path').join(__dirname, './coverage/aline-member-dashboard'),
       subdir: '.',
       reporters: [
         { type: 'html' },
@@ -39,6 +39,17 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['ChromeHeadless'],
     singleRun: false,
+    customLaunchers: {
+        ChromeHeadless: {
+            base: 'Chrome',
+            flags: [
+                '--no-sandbox',
+                '--headless',
+                '--disable-gpu',
+                '--remote-debugging-port=9222',
+            ],
+        },
+    },
     restartOnFileChange: true
   });
 };
