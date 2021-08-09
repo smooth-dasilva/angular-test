@@ -29,7 +29,7 @@ pipeline {
         stage(‘Code Analysis: Sonarqube’) {
             steps {
                 withSonarQubeEnv(‘SonarQube’) {
-                    sh ‘np sonar:sonar’
+                    sh 'npm run cibuild'
                 }
             }
         }
