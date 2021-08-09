@@ -11,7 +11,7 @@ pipeline {
 
         stage("Install") {
             steps {
-                sh "npm install"
+                sh "npm install --save --legacy-peer-deps"
             }
         }
 
@@ -23,16 +23,16 @@ pipeline {
 
         stage("Build") {
             steps {
-                sh "npm run watch"
+                sh "npm run build"
             }
         }
-        // stage(‘Code Analysis: Sonarqube’) {
-        //     steps {
-        //         withSonarQubeEnv(‘SonarQube’) {
-        //             sh ‘np sonar:sonar’
-        //         }
-        //     }
-        // }
+        stage(‘Code Analysis: Sonarqube’) {
+            steps {
+                withSonarQubeEnv(‘SonarQube’) {
+                    sh ‘np sonar:sonar’
+                }
+            }
+        }
         // stage(‘Await Quality Gateway’) {
         //     steps {
         //         waitForQualityGate abortPipeline: true
