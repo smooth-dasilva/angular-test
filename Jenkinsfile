@@ -26,14 +26,14 @@ pipeline {
                 sh "npm run build"
             }
         }
-        stage(‘Code Analysis: Sonarqube’) {
+        stage("Code Analysis: Sonarqube") {
             steps {
                 withSonarQubeEnv(‘SonarQube’) {
-                    sh 'npm run cibuild'
+                    sh "npm run cibuild"
                 }
             }
         }
-        // stage(‘Await Quality Gateway’) {
+        // stage("Await Quality Gateway") {
         //     steps {
         //         waitForQualityGate abortPipeline: true
         //     }
