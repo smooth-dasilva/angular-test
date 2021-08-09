@@ -14,14 +14,16 @@ pipeline {
                 sh "npm install"
             }
         }
+
         stage("Test") {
             steps {
                 sh "npm run test-headless"
             }
         }
+
         stage("Build") {
             steps {
-                sh "ng build"
+                sh "npm run watch"
             }
         }
         // stage(‘Code Analysis: Sonarqube’) {
@@ -45,9 +47,11 @@ pipeline {
 
         }
     }
+
     post {
         always {
             echo "S3 updated"
-        }
+        }   
     }
+    
 }
