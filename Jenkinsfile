@@ -30,7 +30,7 @@ pipeline {
         }
         stage("Code Analysis: Sonarqube") {
             steps {
-                withSonarQubeEnv(‘SonarQube’) {
+                withSonarQubeEnv("SonarQube") {
                     sh "npm run cibuild"
                 }
             }
