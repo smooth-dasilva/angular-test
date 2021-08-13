@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test-headless": "ng test --watch false --browsers ChromeHeadless",
-    "cibuild": "ng test --single-run --cc && ng build --prod --no-progress"
+    "cibuild": "ng test --single-run --cc"
   },
   "private": true,
   "dependencies": {
