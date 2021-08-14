@@ -29,14 +29,13 @@ pipeline {
         }
         stage('Sonarqube') {
             steps {
-                container('SonarQubeScanner') {
                     withSonarQubeEnv('SonarQube') {
                         sh "/usr/local/sonar-scanner"
                     }
                     timeout(time: 10, unit: 'MINUTES') {
                         waitForQualityGate abortPipeline: true
                     }
-                }
+               
             }
 }
   
