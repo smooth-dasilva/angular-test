@@ -11,7 +11,6 @@ pipeline {
 
         stage("Install") {
             steps { 
-                sh "npm install --save --legacy-peer-deps"
                 sh "npm i"
             }
 
@@ -19,7 +18,7 @@ pipeline {
 
         stage("Test") {
             steps {
-                sh "npm run test-headless"
+                sh "npm run cibuild"
             }
         }
 
@@ -28,13 +27,19 @@ pipeline {
                 sh "npm run build"
             }
         }
-        stage("Code Analysis: Sonarqube") {
+        stage('Sonarqube') {
             steps {
-                withSonarQubeEnv("SonarQube") {
-                    sh "npm run cibuild"
+                container('SonarQubeScanner') {
+                    withSonarQubeEnv('SonarQube') {
+                        sh "/usr/local/sonar-scanner"
+                    }
+                    timeout(time: 10, unit: 'MINUTES') {
+                        waitForQualityGate abortPipeline: true
+                    }
                 }
             }
-        }
+}
+  
         // stage("Await Quality Gateway") {
         //     steps {
         //         waitForQualityGate abortPipeline: true
