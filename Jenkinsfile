@@ -18,7 +18,7 @@ pipeline {
 
         stage("Test") {
             steps {
-                sh "npm run cibuild"
+                sh "npm run test-coverage"
             }
         }
 
@@ -27,6 +27,7 @@ pipeline {
                 sh "npm run build"
             }
         }
+
         stage('Sonarqube') {
             steps {
                     withSonarQubeEnv('SonarQube') {
@@ -50,7 +51,6 @@ pipeline {
                 echo "Update S3 bucket with new build"
                 sh "aws s3 sync ./dist s3://${S3_BUCKET} --delete --acl public-read"
             }
-
         }
     }
 
@@ -59,5 +59,4 @@ pipeline {
             echo "Post CI/CD build"
         }   
     }
-    
 }
