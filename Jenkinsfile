@@ -39,11 +39,11 @@ pipeline {
             }
 }
   
-        // stage("Await Quality Gateway") {
-        //     steps {
-        //         waitForQualityGate abortPipeline: true
-        //     }
-        // }
+        stage("Await Quality Gateway") {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
 
         stage("Deploy") {
             steps {
@@ -56,7 +56,7 @@ pipeline {
 
     post {
         always {
-            echo "S3 updated"
+            echo "Post CI/CD build"
         }   
     }
     
