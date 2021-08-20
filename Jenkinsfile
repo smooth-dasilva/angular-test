@@ -6,8 +6,6 @@ pipeline {
             COMMIT_HASH = "${sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()}"
             REGION = "us-east-2"
             S3_BUCKET = "user-portal-alinetest"
-            SONAR_URL = credentials('SONAR_URL')
-            USER_PORTAL_SONAR_TOKEN = credentials('USER_PORTAL_SONAR_TOKEN')
         }
     stages {
 
