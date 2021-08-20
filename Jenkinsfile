@@ -34,8 +34,8 @@ pipeline {
                         sh "sonar-scanner \
                             -Dsonar.projectKey=user-portal \
                             -Dsonar.sources=. \
-                            -Dsonar.host.url=${JENKINS-URL} \
-                            -Dsonar.login=${USER-PORTAL-TOKEN}"
+                            -Dsonar.host.url=${SONAR_URL} \
+                            -Dsonar.login=${USER_PORTAL_SONAR_TOKEN}"
                     }
                     timeout(time: 10, unit: 'MINUTES') {
                         waitForQualityGate abortPipeline: true
