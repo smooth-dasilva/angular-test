@@ -31,7 +31,11 @@ pipeline {
         stage('Sonarqube') {
             steps {
                     withSonarQubeEnv('SonarQube') {
-                        sh "/opt/sonarqube/bin/linux-x86-64/sonar.sh"
+                        sh "sonar-scanner \
+                            -Dsonar.projectKey=user-portal \
+                            -Dsonar.sources=. \
+                            -Dsonar.host.url=${JENKINS-URL} \
+                            -Dsonar.login=${USER-PORTAL-TOKEN}"
                     }
                     timeout(time: 10, unit: 'MINUTES') {
                         waitForQualityGate abortPipeline: true
