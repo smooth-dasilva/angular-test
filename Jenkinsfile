@@ -36,11 +36,7 @@ pipeline {
                 string(credentialsId: 'USER_PORTAL_SONAR_TOKEN', variable: 'TOKEN')
                     ]){
                     withSonarQubeEnv('SonarQube') {
-                        sh "/opt/sonarqube/bin/linux-x86-64/sonar.sh \
-                            -Dsonar.projectKey=user-portal \
-                            -Dsonar.sources=. \
-                            -Dsonar.host.url=${URL} \
-                            -Dsonar.login=${TOKEN}"
+                        sh "/opt/sonarqube/bin/linux-x86-64/sonar.sh"
                     }
                     timeout(time: 10, unit: 'MINUTES') {
                         waitForQualityGate abortPipeline: true
