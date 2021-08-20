@@ -31,7 +31,7 @@ pipeline {
         stage('Sonarqube') {
             steps {
                     withSonarQubeEnv('SonarQube') {
-                        sh "/opt/sonar-scanner/bin/linux-x86-64/sonar.sh"
+                        sh "/opt/sonarquber/bin/linux-x86-64/sonar.sh"
                     }
                     timeout(time: 10, unit: 'MINUTES') {
                         waitForQualityGate abortPipeline: true
