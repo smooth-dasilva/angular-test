@@ -32,7 +32,7 @@ pipeline {
             steps {
               
               withCredentials([
-                string(credentialsId: SONAR_URL, variable: 'URL'),
+                string(credentialsId: 'SONAR_URL', variable: 'URL'),
                 string(credentialsId: 'USER_PORTAL_SONAR_TOKEN', variable: 'TOKEN')
                     ]){
                     withSonarQubeEnv('SonarQube') {
