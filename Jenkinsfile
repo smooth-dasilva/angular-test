@@ -32,16 +32,24 @@ pipeline {
 
         stage('Sonarqube') {
             steps {
+              
+              withCredentials([
+                string(credentialsId: SONAR_URL, variable: 'URL'),
+                string(credentialsId: 'USER_PORTAL_SONAR_TOKEN', variable: 'TOKEN')
+                    ]){
                     withSonarQubeEnv('SonarQube') {
                         sh "sonar-scanner \
                             -Dsonar.projectKey=user-portal \
                             -Dsonar.sources=. \
-                            -Dsonar.host.url=${SONAR_URL} \
-                            -Dsonar.login=${USER_PORTAL_SONAR_TOKEN}"
+                            -Dsonar.host.url=${URL} \
+                            -Dsonar.login=${TOKEN}"
                     }
                     timeout(time: 10, unit: 'MINUTES') {
                         waitForQualityGate abortPipeline: true
-                    }
+                      
+                     }   
+                    
+                  }
                
             }
 }
