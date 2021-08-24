@@ -35,7 +35,7 @@ pipeline {
                 string(credentialsId: 'SONAR_URL', variable: 'URL'),
                 string(credentialsId: 'USER_PORTAL_SONAR_TOKEN', variable: 'TOKEN')
                     ]){
-                    def scannerHome = tool 'sonar'
+                    def scannerHome = tool 'jenkins-sonar'
                     withSonarQubeEnv('Sonarqube') {
                         sh '''
                           "${scannerHome}"/bin/sonar-scanner \
