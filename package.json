@@ -9,7 +9,7 @@
     "test": "ng test",
     "test-headless": "ng test --nowatch --browsers ChromeHeadless",
     "test-coverage": "ng test --nowatch --browsers ChromeHeadless --code-coverage",
-    "sonar": "sonar-scanner"
+    "sonar": "node sonar-project.js"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +42,7 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "karma-sonarqube-unit-reporter": "0.0.23",
     "sonar-scanner": "^3.1.0",
+    "sonarqube-scanner": "^2.8.1",
     "typescript": "~4.3.2"
   }
 }

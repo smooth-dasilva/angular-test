@@ -1,0 +1,6 @@
+projectKey=aline-member-dashboard
+serverUrl=http://localhost:9000
+serverVersion=9.0.1.46107
+dashboardUrl=http://localhost:9000/dashboard?id=aline-member-dashboard
+ceTaskId=AXt7ARhwoE3S4tsDF-r5
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXt7ARhwoE3S4tsDF-r5
