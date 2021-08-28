@@ -3,8 +3,8 @@ require('dotenv').config()
 
 sonarqubeScanner({ 
 
-    serverUrl: `${process.env.SONAR_HOST_URL}`,
-    token: `${process.env.SONAR_MEMBER_TOKEN}`,
+    serverUrl: process.env.SONAR_HOST_URL,
+    token: process.env.SONAR_MEMBER_TOKEN,
      
     options: {
         "sonar.sources":"src",
