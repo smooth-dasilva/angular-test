@@ -30,26 +30,22 @@ pipeline {
 
         stage('Sonarqube') {
             steps {
-              
-              withCredentials([
-                string(credentialsId: 'SONAR_URL', variable: 'URL'),
-                string(credentialsId: 'USER_PORTAL_SONAR_TOKEN', variable: 'TOKEN')
-                    ]){
                     def scannerHome = tool 'sonar'
                     withSonarQubeEnv('Sonarqube') {
+                        
                         sh "${scannerHome}/bin/sonar-scanner"
                         sh "npm run sonar"
 
                     timeout(time: 10, unit: 'MINUTES') {
                         waitForQualityGate abortPipeline: true
                       
-                     }   
+                    }   
                     
-                  }
+                    }
                
+            
             }
         }
-}
   
         stage("Await Quality Gateway") {
             steps {
