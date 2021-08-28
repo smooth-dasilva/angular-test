@@ -30,10 +30,7 @@ pipeline {
 
         stage('Sonarqube') {
             steps {
-                    def scannerHome = tool 'sonar'
                     withSonarQubeEnv('Sonarqube') {
-                        
-                        sh "${scannerHome}/bin/sonar-scanner"
                         sh "npm run sonar"
 
                     timeout(time: 10, unit: 'MINUTES') {
