@@ -1,24 +1,24 @@
 <testExecutions version="1">
-  <file path="src/app/registration/registration.component.spec.ts">
-    <testCase name="RegistrationComponent should create" duration="36"/>
-  </file>
-  <file path="src/app/login/login.component.spec.ts">
-    <testCase name="LoginComponent should create" duration="8"/>
-  </file>
   <file path="src/app/auth/auth.guard.spec.ts">
-    <testCase name="AuthGuard should be created" duration="4"/>
-  </file>
-  <file path="src/app/dashboard/dashboard.component.spec.ts">
-    <testCase name="DashboardComponent should create" duration="8"/>
+    <testCase name="AuthGuard should be created" duration="15"/>
   </file>
   <file path="src/app/app.component.spec.ts">
-    <testCase name="AppComponent should create the app" duration="7"/>
-    <testCase name="AppComponent should have as title 'aline-member-dashboard'" duration="7"/>
+    <testCase name="AppComponent should create the app" duration="19"/>
+    <testCase name="AppComponent should have as title 'aline-member-dashboard'" duration="4"/>
   </file>
   <file path="src/app/auth/auth.service.spec.ts">
-    <testCase name="AuthService should be created" duration="4"/>
+    <testCase name="AuthService should be created" duration="2"/>
   </file>
   <file path="src/app/auth/auth.interceptor.spec.ts">
-    <testCase name="AuthInterceptor should be created" duration="3"/>
+    <testCase name="AuthInterceptor should be created" duration="4"/>
+  </file>
+  <file path="src/app/login/login.component.spec.ts">
+    <testCase name="LoginComponent should create" duration="7"/>
+  </file>
+  <file path="src/app/dashboard/dashboard.component.spec.ts">
+    <testCase name="DashboardComponent should create" duration="6"/>
+  </file>
+  <file path="src/app/registration/registration.component.spec.ts">
+    <testCase name="RegistrationComponent should create" duration="5"/>
   </file>
 </testExecutions>

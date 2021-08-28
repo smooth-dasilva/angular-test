@@ -1,17 +1,20 @@
-const sonarqubeScanner = require('sonarqube-scanner');
-sonarqubeScanner( { 
-    serverUrl: "http://localhost:9000",
-    token: "1ef9b3a0a85028975b45fb2bd9330da78e7db00c",
-    
+const sonarqubeScanner = require("sonarqube-scanner");
+require('dotenv').config()
+
+sonarqubeScanner({ 
+
+    serverUrl: `${process.env.SONAR_HOST_URL}`,
+    token: `${process.env.SONAR_TOKEN}`,
+     
     options: {
         "sonar.sources":"src",
-        "sonar.tests":"src",
-        "sonar.exclusions":"**/node_modules/**",
-        "sonar.test.inclusions":"**/*.spec.ts",
+        "sonar.tests":"src/test.ts",
+        "sonar.test.exclusions":"/src/test.ts",
+        "sonar.test.inclusions":"/src/app/**/*.ts",
         "sonar.typescript.lcov.reportPaths":"coverage/lcov.info",
         "sonar.testExecutionReportPaths":"reports/ut_report.xml"
-    }
+    },
 
- } , () => { 
+ }, () => { 
     console.log("scanner shutdown")
-}  )
+});
