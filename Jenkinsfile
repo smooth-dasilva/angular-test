@@ -37,13 +37,7 @@ pipeline {
                     ]){
                     def scannerHome = tool 'jenkins-sonar'
                     withSonarQubeEnv('Sonarqube') {
-                        sh '''
-                          "{scannerHome}/bin/sonar-scanner \
-                             -Dsonar.projectKey=user-portal \
-                             -Dsonar.sources=. \
-                             -Dsonar.host.url="{URL}" \
-                             -Dsonar.login="{TOKEN}"
-                        '''
+                        sh 'npm run sonar'
 
                     timeout(time: 10, unit: 'MINUTES') {
                         waitForQualityGate abortPipeline: true
