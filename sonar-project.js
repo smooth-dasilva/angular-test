@@ -16,5 +16,5 @@ sonarqubeScanner({
     },
 
  }, () => { 
-    console.log("scanner shutdown")
+    console.log("Scanner Shutdown")
 });

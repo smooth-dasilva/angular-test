@@ -32,12 +32,6 @@ pipeline {
             steps {
                     withSonarQubeEnv('Sonarqube') {
                         sh "npm run sonar"
-
-                    timeout(time: 10, unit: 'MINUTES') {
-                        waitForQualityGate abortPipeline: true
-                      
-                    }   
-                    
                     }
                
             
