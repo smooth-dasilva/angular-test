@@ -5,7 +5,7 @@ pipeline {
     environment {
             REGION = "us-east-2"
             S3_BUCKET = credentials('MEMBER_BUCKET')
-
+    }
     stages {
         stage("Install") {
             steps { 
