@@ -41,7 +41,7 @@ pipeline {
 
         stage("Deploy") {
             steps {
-                echo "Update S3 bucket with new build"
+                echo "${S3_BUCKET} Update S3 bucket with new build"
                 // sh "aws s3 sync ./dist s3://${S3_BUCKET} --delete --acl public-read"
             }
         }
