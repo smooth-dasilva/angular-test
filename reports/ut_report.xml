@@ -1,24 +1,24 @@
 <testExecutions version="1">
-  <file path="src/app/registration/registration.component.spec.ts">
-    <testCase name="RegistrationComponent should create" duration="28"/>
-  </file>
   <file path="src/app/login/login.component.spec.ts">
-    <testCase name="LoginComponent should create" duration="6"/>
-  </file>
-  <file path="src/app/auth/auth.guard.spec.ts">
-    <testCase name="AuthGuard should be created" duration="3"/>
+    <testCase name="LoginComponent should create" duration="165"/>
   </file>
   <file path="src/app/dashboard/dashboard.component.spec.ts">
-    <testCase name="DashboardComponent should create" duration="5"/>
+    <testCase name="DashboardComponent should create" duration="9"/>
   </file>
   <file path="src/app/auth/auth.service.spec.ts">
-    <testCase name="AuthService should be created" duration="2"/>
+    <testCase name="AuthService should be created" duration="7"/>
   </file>
   <file path="src/app/auth/auth.interceptor.spec.ts">
-    <testCase name="AuthInterceptor should be created" duration="1"/>
+    <testCase name="AuthInterceptor should be created" duration="6"/>
+  </file>
+  <file path="src/app/auth/auth.guard.spec.ts">
+    <testCase name="AuthGuard should be created" duration="5"/>
+  </file>
+  <file path="src/app/registration/registration.component.spec.ts">
+    <testCase name="RegistrationComponent should create" duration="9"/>
   </file>
   <file path="src/app/app.component.spec.ts">
-    <testCase name="AppComponent should create the app" duration="3"/>
-    <testCase name="AppComponent should have as title 'aline-member-dashboard'" duration="3"/>
+    <testCase name="AppComponent should have as title 'aline-member-dashboard'" duration="12"/>
+    <testCase name="AppComponent should create the app" duration="5"/>
   </file>
 </testExecutions>

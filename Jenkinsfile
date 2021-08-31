@@ -3,17 +3,14 @@ pipeline {
     agent any
     tools {nodejs "nodejs"}
     environment {
-            COMMIT_HASH = "${sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()}"
             REGION = "us-east-2"
-            S3_BUCKET = "user-portal-alinetest"
-        }
-    stages {
+            S3_BUCKET = credentials('MEMBER_BUCKET')
 
+    stages {
         stage("Install") {
             steps { 
                 sh "npm i"
             }
-
         }
 
         stage("Test") {
@@ -30,11 +27,9 @@ pipeline {
 
         stage('Sonarqube') {
             steps {
-                    withSonarQubeEnv('Sonarqube') {
-                        sh "npm run sonar"
-                    }
-               
-            
+                withSonarQubeEnv('Sonarqube') {
+                    sh "npm run sonar"
+                }
             }
         }
   
@@ -54,7 +49,7 @@ pipeline {
 
     post {
         always {
-            echo "Post CI/CD build"
+            echo "Post Member-Dashboard CI/CD build"
         }   
     }
 }
